@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="avenir pa3">
+  <h1>Recently Added</h1>
+</div>
+  {% if book_list %}
+  <div class='items-center justify-center f5 avenir pa2 mh2'>
+    {% for book in book_list %}
+        <a href="{{ book.url }}">{{ book.title }}</a> ({{book.author}})
+        <p>{{ book.description }}</p>
+        <p class='f6 i'>{{ book.date_added }}</p>
+    {% endfor %}
+  
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}       
+</div>
+{% endblock %}

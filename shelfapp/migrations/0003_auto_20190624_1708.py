@@ -18,7 +18,7 @@ def load_initial_data(apps, schema_editor):
             book = Book(title=row['title'], author=row['author'], url=row['url'], description=row['description'])
             book.save()
 
-def do_nothing(apps, scheme_editor):
+def do_nothing(apps, schema_editor):
     pass
 
     
