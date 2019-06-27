@@ -9,11 +9,11 @@ def index(request):
     """View function for home page of site."""
 
     book_list = Book.objects.all()
-    num_categories = Category.objects.all()
+    category_list = Category.objects.all()
     
     context = {
         'book_list': book_list,
-        'num_categories': num_categories,
+        'category_list': category_list,
         
     }
     # Render the HTML template index.html with the data in the context variable
@@ -21,3 +21,5 @@ def index(request):
 
 
     
+class CategoryDetailView(generic.DetailView):
+    model = Category

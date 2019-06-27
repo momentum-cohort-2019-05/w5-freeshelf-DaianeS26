@@ -14,11 +14,11 @@
      <h1 class="mt2 mb0 baskerville i fw1 f1">Free Book Shelf</h1>
 <h2 class="mt2 mb0 f6 fw4 ttu tracked"> Learn with us </h2>
 <nav class="bt bb tc mw7 center mt4">
-    <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="{% url 'index' %}">Home</a>
-    <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="">All Books</a>
-    <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/authors">Categories</a>
-    <!-- <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/about">About</a>
-    <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/contact">Contact</a> -->
+
+        {% for category in category_list %}
+          <a class="f6 f5-l link bg-animate black-80 hover-bg-light-blue dib pa3 ph4-l" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+         {% endfor %}
+
 </nav>
 </header>
  {% endblock %}

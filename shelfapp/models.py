@@ -8,6 +8,10 @@ class Category(models.Model):
     
     class Meta:
         verbose_name_plural = "categories"
+    
+    def get_absolute_url(self):
+        """Returns the url to access a detail record for this book."""
+        return reverse('category-detail', args=[str(self.id)])
         
     def __str__(self):
         """String for representing the Model object."""
