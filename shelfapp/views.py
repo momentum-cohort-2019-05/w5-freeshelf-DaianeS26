@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Book, Category
 from django.views import generic
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -22,8 +23,17 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
-
-
+    
 
 class CategoryDetailView(generic.DetailView):
     model = Category
+
+def category(request):
+    category_list = Category.objects.all()
+
+    context = {
+        'category_list': category_list,
+    }
+
+
+    return render(request, 'shelfapp/categories.html')
