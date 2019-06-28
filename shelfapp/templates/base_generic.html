@@ -10,17 +10,19 @@
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 {% block topbar %}
-<div class="vh-50 cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);"></div>
-<header class="bg-white black-80 tc pv4 avenir">
-<nav>
-        <a class="link dim black b f1 f-headline-ns tc db mb3 mb4-ns" href={% url "index" %} title="Home">Free Bookshelf</a>
-        <div class="tc pb3">
-        {% for category in category_list %}
-        <a class="link dim gray f6 f5-ns dib mr3" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-         {% endfor %}
-         </div>
+<div class="vh-25 cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+    <a class="link dim white b f1 f-headline-ns tc pv4 db mb3 mb4-ns avenir" href={% url "index" %} title="Home">Free Bookshelf</a>
+</div>
 
-</nav>
+<header class="bg-white black-80 tc avenir">
+    <nav class="pa3 pa4-ns">
+            <div class="tc pb3">
+                <a class="link dim gray f6 f5-ns dib mr6" href={% url "index" %} title="Home">Home</a>
+                <a class="link dim gray f6 f5-ns dib mr6" href={% url "books" %} title="Books">Books</a>
+                <a class="link dim gray f6 f5-ns dib mr6" href="#" title="Categories">Categories</a>
+                <a class="link dim gray f6 f5-ns dib" href="#" title="Login">Login</a>
+            </div>
+            </nav>
 </header>
  {% endblock %}
       </div>

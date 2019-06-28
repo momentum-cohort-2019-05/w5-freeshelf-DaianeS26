@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="avenir dim grey pa2 mh2">
+   <h2>Available Books</h2>
+</div>
+  <div class='items-center justify-center f5 avenir pa2 mh2'>
+    {% for book in book_list %}
+        <p>{{ book.title }} by {{book.author}}</p>
+    {% endfor %}
+    
+</div>
+{% endblock %}
