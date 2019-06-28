@@ -25,15 +25,15 @@ class BookListView(generic.ListView):
     model = Book
     
 
-class CategoryDetailView(generic.DetailView):
-    model = Category
+# class CategoryDetailView(generic.DetailView):
+#     model = Category
 
 def category(request):
+
     category_list = Category.objects.all()
 
     context = {
         'category_list': category_list,
     }
 
-
-    return render(request, 'shelfapp/categories.html')
+    return render(request, 'shelfapp/categories.html', context=context)

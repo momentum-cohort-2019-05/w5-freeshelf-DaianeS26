@@ -6,9 +6,11 @@
 </div>
   <div class='flex items-center justify-center f5 avenir pa2 mh2'>
     <ul>
+        <ul>
             {% for category in category_list %}
-            <a class="link dim gray f6 f5-ns dib mr3" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-             {% endfor %}
+                <li>{{ category.name }}</li>
+            {% endfor %}
+          </ul>
     </ul>
 </div>
 {% endblock %}

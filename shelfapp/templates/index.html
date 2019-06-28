@@ -4,16 +4,11 @@
 <div class="avenir dim grey pa3">
   <h2>Recently Added Books</h2>
 </div>
-  {% if book_list %}
   <div class='items-center justify-center f5 avenir pa2 mh2'>
     {% for book in book_list %}
         <a href="{{ book.url }}">{{ book.title }}</a> ({{book.author}})
         <p>{{ book.description }}</p>
         <p class='f6 i'>{{ book.date_added }}</p>
-    {% endfor %}
-  
-  {% else %}
-    <p>There are no books in the library.</p>
-  {% endif %}       
+    {% endfor %}  
 </div>
 {% endblock %}

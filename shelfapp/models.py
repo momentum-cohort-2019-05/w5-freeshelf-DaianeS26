@@ -3,7 +3,7 @@ from django.urls import reverse
 # Create your models here.
 
 class Category(models.Model):
-    """Model representing a book genre."""
+    """Model representing a book category."""
     name = models.CharField(max_length=200, help_text='Enter a book genre (e.g. Science Fiction)')
     
     class Meta:
@@ -11,7 +11,7 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
-        return reverse('category-detail', args=[str(self.id)])
+        return reverse('categories', args=[str(self.id)])
         
     def __str__(self):
         """String for representing the Model object."""
@@ -19,6 +19,8 @@ class Category(models.Model):
 
 
 class Book(models.Model):
+    """Model representing a book"""
+
     title = models.CharField(max_length=100)
     author = models.CharField(max_length = 100)
     description = models.CharField(max_length = 500)
