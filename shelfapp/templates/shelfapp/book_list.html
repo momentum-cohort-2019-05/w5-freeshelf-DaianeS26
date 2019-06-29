@@ -1,4 +1,4 @@
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <div class="flex justify-center avenir dim grey pa2 mh2">
@@ -6,7 +6,7 @@
 </div>
   <div class='flex items-center justify-center f5 avenir pa2 mh2'>
     <ul>
-      {% for book in book_list %}
+      {% for book in list_of_books %}
           <li>{{ book.title }} by {{book.author}}</li>
       {% endfor %}
     </ul>

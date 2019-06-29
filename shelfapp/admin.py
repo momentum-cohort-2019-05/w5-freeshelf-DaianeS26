@@ -1,10 +1,12 @@
 from django.contrib import admin
-from shelfapp.models import Book, Category
+from shelfapp.models import Book, Category, Favorite
 
 # Register your models here.
 
 # admin.site.register(Book)
 admin.site.register(Category)
+
+
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):

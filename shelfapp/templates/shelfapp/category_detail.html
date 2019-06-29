@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center avenir dim grey pa2 mh2">
+   <h2>Available categories</h2>
+</div>
+  <div>
+    {% for book in category.book_set.all %}
+      <p><a href='{{ book.url }}'>{{ book }}</a> &nbsp;&nbsp;by:&nbsp{{ book.author}}</p>
+     {{ book.description }}
+ <p>Added: {{ book.date_added }}</p>
+{% endfor %}
+</div>
+{% endblock %}

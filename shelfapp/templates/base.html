@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% block title %}<title>Free Bookshelf</title>{% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+        <!-- Add additional CSS in static file -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+{% block topbar %}
+<div class="vh-25 cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+    <a class="link dim white b f1 f-headline-ns tc pv4 db mb3 mb4-ns avenir" href="{% url 'index' %}" title="Title">Free Bookshelf</a>
+</div>
+
+<header class="bg-white black-80 tc avenir">
+    <nav class="pa3 pa4-ns">
+      <div class=“nav_links”>
+        {% if request.user.is_authenticated %}
+        Logged in as {{ request.user }} | <li><a href="{% url 'user-favorites' %}">Favorites</a></li> | <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'auth_login' %}"">Login |</a></li>
+        <li><a href="{% url 'registration_register' %}">Register</a></li>
+        {% endif %}
+            <div class=“catnav”>
+              {% block catnav %}
+              <ul>
+                  <li class=“booksby”>Books by category:</li>
+                  {% for category in list_of_categories %}
+                  <li><a href='{{ category.get_absolute_url }}'>{{ category.name }}</a></li>
+                  {% endfor %}
+              </ul>
+              {% endblock %}
+          </div>
+            </nav>
+</header>
+ {% endblock %}
+      </div>
+      <div>{% block content %}{% endblock %}</div>
+    </div>
+  </div>
+</body>
+</html>
