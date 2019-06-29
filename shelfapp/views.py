@@ -9,12 +9,12 @@ from django.http import HttpResponse
 def index(request):
     """View function for home page of site."""
 
-    book_list = Book.objects.all()
-    category_list = Category.objects.all()
+    list_of_books = Book.objects.all()
+    list_of_categories = Category.objects.all()
     
     context = {
-        'book_list': book_list,
-        'category_list': category_list,
+        'list_of_books': list_of_books,
+        'list_of_categories': list_of_categories,
         
     }
     # Render the HTML template index.html with the data in the context variable
@@ -25,9 +25,6 @@ class BookListView(generic.ListView):
     model = Book
     
 
-# class CategoryDetailView(generic.DetailView):
-#     model = Category
-
 def category(request):
 
     category_list = Category.objects.all()
@@ -37,3 +34,17 @@ def category(request):
     }
 
     return render(request, 'shelfapp/categories.html', context=context)
+
+
+def list_of_books_by_category(request, category_pk):
+  
+    books_by_category = Book.objects.filter(categories__id=category_pk)
+
+    context = {
+        'books_by_category': books_by_category,
+
+    }
+
+    return render(request, 'shelfapp/categories_list.html', context=context)
+
+

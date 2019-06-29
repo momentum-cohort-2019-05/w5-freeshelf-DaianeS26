@@ -26,7 +26,7 @@ class Book(models.Model):
     description = models.CharField(max_length = 500)
     url = models.URLField(max_length = 200, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
-    category = models.ManyToManyField(Category, help_text='Select a category for this book')
+    categories = models.ManyToManyField(Category, help_text='Select a category for this book')
 
     class Meta: 
         ordering = ['-date_added']

@@ -5,7 +5,7 @@
   <h2>Recently Added Books</h2>
 </div>
   <div class='items-center justify-center f5 avenir pa2 mh2'>
-    {% for book in book_list %}
+    {% for book in list_of_books %}
         <a href="{{ book.url }}">{{ book.title }}</a> ({{book.author}})
         <p>{{ book.description }}</p>
         <p class='f6 i'>{{ book.date_added }}</p>
