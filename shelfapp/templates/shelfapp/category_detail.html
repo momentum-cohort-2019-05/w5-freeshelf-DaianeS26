@@ -4,7 +4,7 @@
 <div class="flex justify-center avenir dim grey pa2 mh2">
    <h2>Available categories</h2>
 </div>
-  <div>
+  <div class='items-center justify-center f5 avenir pa2 mh2'>
     {% for book in category.book_set.all %}
       <p><a href='{{ book.url }}'>{{ book }}</a> &nbsp;&nbsp;by:&nbsp{{ book.author}}</p>
      {{ book.description }}
